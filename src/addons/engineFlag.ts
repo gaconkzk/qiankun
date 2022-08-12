@@ -3,23 +3,24 @@
  * @since 2020-05-15
  */
 
-import type { FrameworkLifeCycles } from '../interfaces';
+import type { FrameworkLifeCycles, EnvironmentOptions } from '../interfaces';
 
-export default function getAddOn(global: Window): FrameworkLifeCycles<any> {
+export default function getAddOn(global: Window, options?: EnvironmentOptions): FrameworkLifeCycles<any> {
+  const poweredBy = options?.poweredBy ?? '__POWERED_BY_QIANKUN__';
   return {
     async beforeLoad() {
       // eslint-disable-next-line no-param-reassign
-      global.__POWERED_BY_QIANKUN__ = true;
+      global[poweredBy] = true;
     },
 
     async beforeMount() {
       // eslint-disable-next-line no-param-reassign
-      global.__POWERED_BY_QIANKUN__ = true;
+      global[poweredBy] = true;
     },
 
     async beforeUnmount() {
       // eslint-disable-next-line no-param-reassign
-      delete global.__POWERED_BY_QIANKUN__;
+      delete global[poweredBy];
     },
   };
 }

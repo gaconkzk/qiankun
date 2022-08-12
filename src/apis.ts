@@ -2,6 +2,7 @@ import { noop } from 'lodash';
 import type { ParcelConfigObject } from 'single-spa';
 import { mountRootParcel, registerApplication, start as startSingleSpa } from 'single-spa';
 import type {
+  EnvironmentOptions,
   FrameworkConfiguration,
   FrameworkLifeCycles,
   LoadableApp,
@@ -45,7 +46,9 @@ const autoDowngradeForLowVersionBrowser = (configuration: FrameworkConfiguration
 export function registerMicroApps<T extends ObjectType>(
   apps: Array<RegistrableApp<T>>,
   lifeCycles?: FrameworkLifeCycles<T>,
+  options?: EnvironmentOptions,
 ) {
+  frameworkConfiguration.options = options;
   // Each app only needs to be registered once
   const unregisteredApps = apps.filter((app) => !microApps.some((registeredApp) => registeredApp.name === app.name));
 

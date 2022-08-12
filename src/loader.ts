@@ -258,6 +258,7 @@ export async function loadApp<T extends ObjectType>(
     sandbox = true,
     excludeAssetFilter,
     globalContext = window,
+    options,
     ...importEntryOpts
   } = configuration;
 
@@ -333,7 +334,7 @@ export async function loadApp<T extends ObjectType>(
     afterMount = [],
     beforeMount = [],
     beforeLoad = [],
-  } = mergeWith({}, getAddOns(global, assetPublicPath), lifeCycles, (v1, v2) => concat(v1 ?? [], v2 ?? []));
+  } = mergeWith({}, getAddOns(global, assetPublicPath, options), lifeCycles, (v1, v2) => concat(v1 ?? [], v2 ?? []));
 
   await execHooksChain(toArray(beforeLoad), app, global);
 

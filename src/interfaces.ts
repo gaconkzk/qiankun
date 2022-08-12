@@ -8,12 +8,18 @@ import type { RegisterApplicationConfig, StartOpts, Parcel } from 'single-spa';
 declare global {
   // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
   interface Window {
+    [key: string]: any;
     __POWERED_BY_QIANKUN__?: boolean;
     __INJECTED_PUBLIC_PATH_BY_QIANKUN__?: string;
     __QIANKUN_DEVELOPMENT__?: boolean;
     Zone?: CallableFunction;
   }
 }
+
+export type EnvironmentOptions = {
+  poweredBy?: string;
+  publicPathName?: string;
+};
 
 export type ObjectType = Record<string, any>;
 
@@ -88,6 +94,8 @@ type QiankunSpecialOpts = {
   excludeAssetFilter?: (url: string) => boolean;
 
   globalContext?: typeof window;
+
+  options?: EnvironmentOptions;
 };
 export type FrameworkConfiguration = QiankunSpecialOpts & ImportEntryOpts & StartOpts;
 
