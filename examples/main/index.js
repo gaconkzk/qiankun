@@ -82,6 +82,9 @@ registerMicroApps(
       },
     ],
   },
+  {
+    poweredBy: '__POWERED_BY_THE_FLIES__',
+  },
 );
 
 const { onGlobalStateChange, setGlobalState } = initGlobalState({

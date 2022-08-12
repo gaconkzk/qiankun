@@ -9,10 +9,9 @@ let router = null;
 let instance = null;
 let history = null;
 
-
 function render(props = {}) {
   const { container } = props;
-  history = createWebHistory(window.__POWERED_BY_QIANKUN__ ? '/vue3' : '/');
+  history = createWebHistory(window.__POWERED_BY_THE_FLIES__ ? '/vue3' : '/');
   router = createRouter({
     history,
     routes,
@@ -24,7 +23,7 @@ function render(props = {}) {
   instance.mount(container ? container.querySelector('#app') : '#app');
 }
 
-if (!window.__POWERED_BY_QIANKUN__) {
+if (!window.__POWERED_BY_THE_FLIES__) {
   render();
 }
 

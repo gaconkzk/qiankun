@@ -17,7 +17,7 @@ let instance = null;
 function render(props = {}) {
   const { container } = props;
   router = new VueRouter({
-    base: window.__POWERED_BY_QIANKUN__ ? '/vue' : '/',
+    base: window.__POWERED_BY_THE_FLIES__ ? '/vue' : '/',
     mode: 'history',
     routes,
   });
@@ -25,11 +25,11 @@ function render(props = {}) {
   instance = new Vue({
     router,
     store,
-    render: h => h(App),
+    render: (h) => h(App),
   }).$mount(container ? container.querySelector('#app') : '#app');
 }
 
-if (!window.__POWERED_BY_QIANKUN__) {
+if (!window.__POWERED_BY_THE_FLIES__) {
   render();
 }
 

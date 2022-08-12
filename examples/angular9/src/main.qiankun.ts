@@ -11,14 +11,14 @@ if (environment.production) {
   enableProdMode();
 }
 
-if (!(window as any).__POWERED_BY_QIANKUN__) {
+if (!(window as any).__POWERED_BY_THE_FLIES__) {
   platformBrowserDynamic()
     .bootstrapModule(AppModule)
-    .catch(err => console.error(err));
+    .catch((err) => console.error(err));
 }
 
 const { bootstrap, mount, unmount } = singleSpaAngular({
-  bootstrapFunction: singleSpaProps => {
+  bootstrapFunction: (singleSpaProps) => {
     singleSpaPropsSubject.next(singleSpaProps);
     return platformBrowserDynamic(getSingleSpaExtraProviders()).bootstrapModule(AppModule);
   },

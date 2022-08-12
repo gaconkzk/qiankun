@@ -19,7 +19,7 @@ function storeTest(props) {
   });
 }
 
-if (!window.__POWERED_BY_QIANKUN__) {
+if (!window.__POWERED_BY_THE_FLIES__) {
   render({});
 }
 

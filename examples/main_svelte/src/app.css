@@ -1,0 +1,14 @@
+html {
+  fontsize: 11px;
+  backgroundcolor: blue;
+}
+
+.mainapp-sidemenu {
+  background-color: #f5f5f5;
+}
+
+.mainapp-sidemenu li {
+  list-style: none;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}

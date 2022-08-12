@@ -1,21 +1,18 @@
-const render = $ => {
-  $('#purehtml-container').html('Hello, render with jQuery');
-  return Promise.resolve();
+const render = async () => {
+  document.getElementById('purehtml-container').innerHTML = 'Hello, render with native dom api!';
 };
 
-(global => {
+((global) => {
   global['purehtml'] = {
-    bootstrap: () => {
+    bootstrap: async () => {
       console.log('purehtml bootstrap');
-      return Promise.resolve();
     },
-    mount: () => {
+    mount: async () => {
       console.log('purehtml mount');
-      return render($);
+      render();
     },
-    unmount: () => {
+    unmount: async () => {
       console.log('purehtml unmount');
-      return Promise.resolve();
     },
   };
 })(window);

@@ -48,7 +48,6 @@ export function registerMicroApps<T extends ObjectType>(
   lifeCycles?: FrameworkLifeCycles<T>,
   options?: EnvironmentOptions,
 ) {
-  frameworkConfiguration.options = options;
   // Each app only needs to be registered once
   const unregisteredApps = apps.filter((app) => !microApps.some((registeredApp) => registeredApp.name === app.name));
 
@@ -64,7 +63,7 @@ export function registerMicroApps<T extends ObjectType>(
         await frameworkStartedDefer.promise;
 
         const { mount, ...otherMicroAppConfigs } = (
-          await loadApp({ name, props, ...appConfig }, frameworkConfiguration, lifeCycles)
+          await loadApp({ name, props, ...appConfig }, { ...frameworkConfiguration, options }, lifeCycles)
         )();
 
         return {
